@@ -1,4 +1,5 @@
 return {}
+-- return {
 --   "nvim-lualine/lualine.nvim",
 --   event = "VeryLazy",
 --   init = function()
@@ -68,8 +69,6 @@ return {}
 --             fmt = function(str)
 --               return add_width(str, "mode")
 --             end,
---             separator = { left = "", right = "" },
---             padding = { left = 0, right = 0 },
 --           },
 --         },
 --         lualine_b = {},
@@ -209,12 +208,10 @@ return {}
 --
 --         lualine_y = {},
 --         lualine_z = {
---           { "progress", separator = { left = "", right = "" }, padding = { left = 0, right = 0 } },
---           --   function()
---           --     local mode = vim.api.nvim_get_mode()["mode"]
---           --     return "" .. string.format("%-1s", mode)
---           --   end,
---           -- },
+--           function()
+--             local mode = vim.api.nvim_get_mode()["mode"]
+--             return "" .. string.format("%-1s", mode)
+--           end,
 --         },
 --       },
 --       inactive_sections = {
