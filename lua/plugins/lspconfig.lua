@@ -1,6 +1,10 @@
 return {
   "neovim/nvim-lspconfig",
   opts = {
+    diagnostics = {
+      -- Disables inline text diagnostics
+      virtual_text = false,
+    },
     servers = {
       -- pyright will be automatically installed with mason and loaded with lspconfig
       basedpyright = {
@@ -18,6 +22,13 @@ return {
         },
       },
       ruff = {},
+      vtsls = {
+        settings = {
+          typescript = {
+            tsdk = "./.yarn/sdks/typescript/lib",
+          },
+        },
+      },
     },
   },
 }
