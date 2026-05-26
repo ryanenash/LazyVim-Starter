@@ -22,13 +22,17 @@ return {
         },
       },
       ruff = {},
-      vtsls = {
-        settings = {
-          typescript = {
-            tsdk = "./.yarn/sdks/typescript/lib",
-          },
-        },
-      },
+      -- Yarn PnP workaround for a specific project — DO NOT enable globally.
+      -- For projects that need it, put this in the repo instead:
+      --   .neoconf.json: { "lspconfig": { "vtsls": { "settings": { "typescript": { "tsdk": ".yarn/sdks/typescript/lib" } } } } }
+      --   or .vscode/settings.json: { "typescript.tsdk": ".yarn/sdks/typescript/lib" }
+      -- vtsls = {
+      --   settings = {
+      --     typescript = {
+      --       tsdk = "./.yarn/sdks/typescript/lib",
+      --     },
+      --   },
+      -- },
     },
   },
 }

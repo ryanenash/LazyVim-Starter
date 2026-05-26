@@ -22,3 +22,5 @@
     - Which does create a `node_modules` folder, but is not recommended by Yarn
     - If using npm it will create a `node_modules` folder by default which vtsls will use
     - Prettier and Eslint do not require custom configuration
+  - Using vtsls with yarn requires a global yarn config, as I am using volta I do this with `volta install yarn`
+    - This creates a .yarn folder in the home directory, if this is deleted, for each project `yarn` must be ran again to get the server working

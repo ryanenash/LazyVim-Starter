@@ -3,6 +3,9 @@
 -- Add any additional options here
 vim.opt.title = true
 vim.opt.titlestring = "%t - %{fnamemodify(getcwd(), ':t')} - nvim"
+
+-- Use tsgo (TypeScript-Go native preview) instead of vtsls for TS/JS LSP
+vim.g.lazyvim_ts_lsp = "tsgo"
 vim.diagnostic.config({
   float = {
     border = "rounded",
