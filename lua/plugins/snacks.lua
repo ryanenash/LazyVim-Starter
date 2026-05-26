@@ -4,6 +4,9 @@ return {
     picker = {
       sources = {
         files = { hidden = true },
+        grep = { hidden = true },
+        grep_word = { hidden = true },
+        grep_buffers = { hidden = true },
       },
     },
   },

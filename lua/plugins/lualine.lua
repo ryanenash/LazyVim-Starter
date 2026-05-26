@@ -3,14 +3,14 @@ return {
   opts = function(_, opts)
     local icons = LazyVim.config.icons
 
-    opts.options.component_separators = { left = "" }
+    opts.options.component_separators = { left = "" }
 
     opts.sections.lualine_a = {
-      { "mode", separator = { left = "", right = "" }, padding = { left = 0, right = 0 } },
+      { "mode", separator = { left = "", right = "" }, padding = { left = 0, right = 0 } },
     }
 
     opts.sections.lualine_b = {
-      { "branch", separator = { right = "" }, padding = { left = 1, right = 0 } },
+      { "branch", separator = { right = "" }, padding = { left = 1, right = 0 } },
     }
 
     opts.sections.lualine_c = {
@@ -19,6 +19,7 @@ return {
           return "󱉭 " .. vim.fs.basename(vim.fn.getcwd())
         end,
         color = { fg = Snacks.util.color("Special") },
+        separator = "",
         padding = { left = 1, right = 1 },
       },
       {
@@ -44,7 +45,7 @@ return {
       },
       -- stylua: ignore
       {
-        function() return "  " .. require("dap").status() end,
+        function() return "  " .. require("dap").status() end,
         cond = function() return package.loaded["dap"] and require("dap").status() ~= "" end,
         color = function() return { fg = Snacks.util.color("Debug") } end,
       },
@@ -69,15 +70,15 @@ return {
     }
 
     opts.sections.lualine_y = {
-      { "progress", separator = { left = "" }, padding = { left = 0, right = 1 } },
+      { "progress", separator = { left = "" }, padding = { left = 0, right = 1 } },
     }
 
     opts.sections.lualine_z = {
       {
         function()
-          return " " .. os.date("%R")
+          return " " .. os.date("%R")
         end,
-        separator = { left = "", right = "" },
+        separator = { left = "", right = "" },
         padding = { left = 0, right = 0 },
       },
     }
