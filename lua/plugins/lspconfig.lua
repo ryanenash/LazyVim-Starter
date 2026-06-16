@@ -27,8 +27,33 @@ return {
           typescript = {
             tsdk = "./.yarn/sdks/typescript/lib",
           },
+          preferences = {
+            displayPartsForJSDoc = true,
+            generateReturnInDocTemplate = true,
+            -- includeInlayParameterNameHints = "all",
+            -- includeInlayParameterNameHintsWhenArgumentMatchesName = true,
+            -- includeInlayFunctionParameterTypeHints = true,
+            -- includeInlayVariableTypeHints = true,
+            -- includeInlayPropertyDeclarationTypeHints = true,
+            -- includeInlayFunctionLikeReturnTypeHints = true,
+            -- includeInlayEnumMemberValueHints = true,
+            -- includeCompletionsForImportStatements = true,
+            -- includeAutomaticOptionalChainCompletions = true,
+          },
+          suggest = {
+            completeFunctionCalls = true,
+            includeCompletionsForImportStatements = true,
+            jsdoc = {
+              generateReturns = true,
+              generateParams = true,
+            },
+          },
+          format = {
+            enable = true,
+          },
         },
       },
+      eslint = {},
     },
   },
 }
