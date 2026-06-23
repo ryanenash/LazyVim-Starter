@@ -2,8 +2,10 @@
 
 - [] All popup borders rounded, e.g. documentation hover, lazyvim, noice, mason
 - [] Snacks.nvim terminal does not position for typing correctly if reopened, only if opening a new terminal
-  - Fixed by pressing enter, can we do an autocmd?
-  - Also solved by using a terminal prompt that only has one line
+  - Reproduce: open the floating terminal with `<C-/>`, hide it with `<C-/>`, toggle back on with `<C-/>`. On the second open, the cursor / focus is not positioned on the prompt line — typing goes to the wrong row.
+  - Workarounds: press Enter, or `<C-c>`, or use a single-line terminal prompt
+  - Open question: is this a Snacks/Neovim redraw bug, or is zsh4humans / powerlevel10k (multi-line prompt) the trigger? p10k repaints on resize/focus events — if those events aren't firing on terminal reshow, the prompt rows render misaligned with where Neovim thinks the cursor is.
+  - Next step: test with a plain `PS1='$ '` (or `zsh -f`) inside the float to isolate which side is at fault. Can we wire an autocmd on `TermEnter`/`BufEnter` that sends `<C-l>` or fires a redraw?
 - [] Set up markdown files 
 - [] Set up .tex files
   - Requires a tex installation, e.g. TeX Live/MacTeX and the plugin `vimtex`
