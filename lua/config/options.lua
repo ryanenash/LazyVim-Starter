@@ -3,3 +3,8 @@
 -- Add any additional options here
 vim.opt.title = true
 vim.opt.titlestring = "%t - %{fnamemodify(getcwd(), ':t')} - nvim"
+vim.diagnostic.config({
+  float = {
+    border = "rounded",
+  },
+})

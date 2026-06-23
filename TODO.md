@@ -1,13 +1,34 @@
-# Todo 
+# Todo
 
+- [] Check for .yarn dir for vtsls, only set sdk dir if it does, can we do it conditionally?
+- [] Same for eslint, if a .yarn dir but using node_modules it breaks, needs one or the other, can we do it conditionally?
+- [] gx command not working when hovering over a function with web documentation e.g. MDN ref
+  - https://github.com/LazyVim/LazyVim/discussions/1916
 - [] All popup borders rounded, e.g. documentation hover, lazyvim, noice, mason
 - [] Snacks.nvim terminal does not position for typing correctly if reopened, only if opening a new terminal
   - Fixed by pressing enter, can we do an autocmd?
+  - Also solved by using a terminal prompt that only has one line
+- [] Set up markdown files
+- [] Set up .tex files
+  - Requires a tex installation, e.g. TeX Live/MacTeX and the plugin `vimtex`
 - [] Set up markdown, js/ts/json files, and vimtex
-- [x] Zen mode and dimming not working with transparent color scheme 
-  - Just use same color scheme as terminal in non-transparent mode (tokynonight-night)
+- [x] Zen mode and dimming not working with transparent color scheme
+  - Just use same color scheme as terminal in non-transparent mode (tokyonight-night)
+  - Using the same colorscheme as the terminal means we don't need to set the background color to transparent
 - [x] Lua warnings in nvim config files
   - Caused by LazyVim/LazyDev interactions
   - <https://Github.com/folke/lazydev.nvim/issues/12>
   - <https://Github.com/folke/lazydev.nvim/pull/106>
   - <https://Github.com/folke/lazydev.nvim/issues/116>
+- [x] Set up JS/TS/Eslint/Prettier
+  - Enabled in LazyVim extras
+  - To work with Volta (per project node vers) we need to create a `.yarn/sdks` dir with: `yarn dlx @yarnpkg/sdks base`
+    - And define `vtsls` to use `.yarn/sdks/typescript/lib` as the `tsdk` location in the `lspconfig` config
+    - By default `vtsls` looks for a `node_modules` folder which yarn versions above v2 do not create
+    - Alternatively we can create a `.yarnrc.yaml` file with content:
+      ```yaml
+      nodeLinker: node-modules
+      ```
+    - Which does create a `node_modules` folder, but is not recommended by Yarn
+    - If using npm it will create a `node_modules` folder by default which vtsls will use
+    - Prettier and Eslint do not require custom configuration
